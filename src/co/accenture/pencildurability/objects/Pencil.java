@@ -67,6 +67,13 @@ public class Pencil {
 				written = written + ' ';
 			}else if(character == '\n') {
 				written = written + '\n';
+			}else if(Character.isUpperCase(character)){
+				if(pencil.getPointDurability() > 0) {
+					written = written + character;
+					pencil.setPointDurability(pencil.getPointDurability()-2);
+				}else {
+					written = written + ' ';
+				}
 			}else {
 				if(pencil.getPointDurability() > 0) {
 					written = written + character;
@@ -74,7 +81,6 @@ public class Pencil {
 				}else {
 					written = written + ' ';
 				}
-				
 			}
 		}
 		return written;

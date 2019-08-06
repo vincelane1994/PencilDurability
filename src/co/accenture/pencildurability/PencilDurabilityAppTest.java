@@ -70,7 +70,15 @@ class PencilDurabilityAppTest {
 		String written = pencil.write(pencil, "the\ndog", "");
 		int expected = 4;
 		int actual = pencil.getPointDurability();
-		System.out.println("e: " + expected + "a: " + actual);
+		assertEquals(expected, actual);
+	}
+	@Test
+	void upperCaseDegradeByTwo() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(10);
+		String written = pencil.write(pencil, "T", "");
+		int expected = 8;
+		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
 	}
 
