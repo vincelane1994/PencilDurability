@@ -18,5 +18,14 @@ class PencilDurabilityAppTest {
         int expected = 5000;
         assertEquals(expected, actual);
 	}
+	@Test
+	void reducePencilLength() {
+		Pencil pencil = new Pencil();
+		pencil.setPencilLength(10);
+		pencil.sharpen(pencil);
+		int expected = 9;
+		int actual = pencil.getPencilLength();
+		assertEquals(expected, actual);
+	}
 
 }
