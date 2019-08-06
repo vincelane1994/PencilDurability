@@ -81,5 +81,14 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
 	}
+	@Test
+	void ifCharIsNotALetter() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(15);
+		String written = pencil.write(pencil, "!@#$%^&*()-", "");
+		int expected = 4;
+		int actual = pencil.getPointDurability();
+		assertEquals(expected, actual);
+	}
 
 }
