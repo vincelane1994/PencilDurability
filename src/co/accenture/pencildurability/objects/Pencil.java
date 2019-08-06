@@ -56,8 +56,12 @@ public class Pencil {
 
 
 	public static void sharpen(Pencil pencil) {
-		pencil.setPointDurability(pencil.getMaxPointDurability());
-		pencil.setPencilLength(pencil.getPencilLength()-1);
+		if(pencil.getPencilLength() > 0) {
+			pencil.setPointDurability(pencil.getMaxPointDurability());
+			pencil.setPencilLength(pencil.getPencilLength()-1);
+		}else {
+			System.out.println("Pencil length is now 0. Please create a new pencil to continue.");
+		}
 	}
 	
 	public static String write(Pencil pencil, String string, String written) {

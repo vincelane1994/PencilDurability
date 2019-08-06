@@ -13,9 +13,11 @@ class PencilDurabilityAppTest {
 		Pencil pencil = new Pencil();
 		pencil.setMaxPointDurability(5000);
 		pencil.setPointDurability(4500);
+		pencil.setPencilLength(10);
 		pencil.sharpen(pencil);
         int actual = pencil.getPointDurability();
         int expected = 5000;
+        System.out.println("E: " + expected + " A: " + actual);
         assertEquals(expected, actual);
 	}
 	@Test
@@ -90,5 +92,13 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
 	}
-
+	@Test
+	void canSharpenWithZeroLength() {
+		Pencil pencil = new Pencil();
+		pencil.setPencilLength(0);
+		pencil.sharpen(pencil);
+		int expected = 0;
+		int actual = pencil.getPencilLength();
+		assertEquals(expected, actual);
+	}
 }
