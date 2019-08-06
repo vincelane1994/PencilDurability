@@ -60,9 +60,8 @@ public class Pencil {
 		pencil.setPencilLength(pencil.getPencilLength()-1);
 	}
 	
-	public static String write(Pencil pencil, String string) {
+	public static String write(Pencil pencil, String string, String written) {
 		char[] chars = string.toCharArray();
-		String written = "";
 		for(char character: chars) {
 			if(character == ' ') {
 				written = written + ' ';

@@ -31,7 +31,7 @@ class PencilDurabilityAppTest {
 	void reducePointDurabilityByChar() {
 		Pencil pencil = new Pencil();
 		pencil.setPointDurability(10);
-		pencil.write(pencil, "the");
+		pencil.write(pencil, "the", "");
 		int expected = 7;
 		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
@@ -40,7 +40,7 @@ class PencilDurabilityAppTest {
 	void doNotReduceDurabilityForWhiteSpace() {
 		Pencil pencil = new Pencil();
 		pencil.setPointDurability(10);
-		pencil.write(pencil, "the dog");
+		pencil.write(pencil, "the dog", "");
 		int expected = 4;
 		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
@@ -49,7 +49,7 @@ class PencilDurabilityAppTest {
 	void pencilRunsOutOfDura() {
 		Pencil pencil = new Pencil();
 		pencil.setPointDurability(5);
-		String written = pencil.write(pencil, "the dog");
+		String written = pencil.write(pencil, "the dog", "");
 		String expected = "the do ";
 		String actual = written;
 		assertEquals(expected, actual);
@@ -58,7 +58,7 @@ class PencilDurabilityAppTest {
 	void writeNewLine() {
 		Pencil pencil = new Pencil();
 		pencil.setPointDurability(10);
-		String written = pencil.write(pencil, "the\ndog");
+		String written = pencil.write(pencil, "the\ndog", "");
 		String expected = "the\ndog";
 		String actual = written;
 		assertEquals(expected, actual);
@@ -67,7 +67,7 @@ class PencilDurabilityAppTest {
 	void newLineDoesNotDegradeDura() {
 		Pencil pencil = new Pencil();
 		pencil.setPointDurability(10);
-		String written = pencil.write(pencil, "the\ndog");
+		String written = pencil.write(pencil, "the\ndog", "");
 		int expected = 4;
 		int actual = pencil.getPointDurability();
 		System.out.println("e: " + expected + "a: " + actual);
