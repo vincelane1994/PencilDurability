@@ -52,6 +52,15 @@ class PencilDurabilityAppTest {
 		String written = pencil.write(pencil, "the dog");
 		String expected = "the do ";
 		String actual = written;
+		assertEquals(expected, actual);
+	}
+	@Test
+	void writeNewLine() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(10);
+		String written = pencil.write(pencil, "the\ndog");
+		String expected = "the\ndog";
+		String actual = written;
 		System.out.println(written);
 		assertEquals(expected, actual);
 	}
