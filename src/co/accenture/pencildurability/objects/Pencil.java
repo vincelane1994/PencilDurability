@@ -64,15 +64,18 @@ public class Pencil {
 		char[] chars = string.toCharArray();
 		String written = "";
 		for(char character: chars) {
-			if(character != ' ') {
+			if(character == ' ') {
+				written = written + ' ';
+			}else if(character == '\n') {
+				written = written + '\n';
+			}else {
 				if(pencil.getPointDurability() > 0) {
 					written = written + character;
 					pencil.setPointDurability(pencil.getPointDurability()-1);
 				}else {
 					written = written + ' ';
 				}
-			}else if(character == ' ') {
-				written = written + ' ';
+				
 			}
 		}
 		return written;
