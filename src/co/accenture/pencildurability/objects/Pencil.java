@@ -60,20 +60,22 @@ public class Pencil {
 		pencil.setPencilLength(pencil.getPencilLength()-1);
 	}
 	
-	public static void write(Pencil pencil, String string) {
+	public static String write(Pencil pencil, String string) {
 		char[] chars = string.toCharArray();
+		String written = "";
 		for(char character: chars) {
 			if(character != ' ') {
 				if(pencil.getPointDurability() > 0) {
-					System.out.print(character);
+					written = written + character;
 					pencil.setPointDurability(pencil.getPointDurability()-1);
 				}else {
-					System.out.print('u');
+					written = written + ' ';
 				}
 			}else if(character == ' ') {
-				System.out.print(' ');
+				written = written + ' ';
 			}
 		}
+		return written;
 		
 	}
 }
