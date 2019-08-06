@@ -88,6 +88,12 @@ public class Pencil {
 			}
 		}
 		return written;
-		
+	}
+	public boolean canErase(Pencil pencil) {
+		if(pencil.getEraserDurability() > 0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }

@@ -101,4 +101,12 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getPencilLength();
 		assertEquals(expected, actual);
 	}
+	@Test
+	void canEraseWithZeroEraser() {
+		Pencil pencil = new Pencil();
+		pencil.setEraserDurability(0);
+		boolean expected = false;
+		boolean actual = pencil.canErase(pencil);
+		assertEquals(expected, actual);
+	}
 }
