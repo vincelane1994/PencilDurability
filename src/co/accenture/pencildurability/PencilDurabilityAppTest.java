@@ -36,5 +36,14 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getPointDurability();
 		assertEquals(expected, actual);
 	}
+	@Test
+	void doNotReduceDurabilityForWhiteSpace() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(10);
+		pencil.write(pencil, "the dog");
+		int expected = 4;
+		int actual = pencil.getPointDurability();
+		assertEquals(expected, actual);
+	}
 
 }
