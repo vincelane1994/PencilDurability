@@ -59,4 +59,21 @@ public class Pencil {
 		pencil.setPointDurability(pencil.getMaxPointDurability());
 		pencil.setPencilLength(pencil.getPencilLength()-1);
 	}
+	
+	public static void write(Pencil pencil, String string) {
+		char[] chars = string.toCharArray();
+		for(char character: chars) {
+			if(character != ' ') {
+				if(pencil.getPointDurability() > 0) {
+					System.out.print(character);
+					pencil.setPointDurability(pencil.getPointDurability()-1);
+				}else {
+					System.out.print('u');
+				}
+			}else if(character == ' ') {
+				System.out.print(' ');
+			}
+		}
+		
+	}
 }

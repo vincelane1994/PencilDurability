@@ -27,5 +27,14 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getPencilLength();
 		assertEquals(expected, actual);
 	}
+	@Test
+	void reducePointDurabilityByChar() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(10);
+		pencil.write(pencil, "the");
+		int expected = 7;
+		int actual = pencil.getPointDurability();
+		assertEquals(expected, actual);
+	}
 
 }
