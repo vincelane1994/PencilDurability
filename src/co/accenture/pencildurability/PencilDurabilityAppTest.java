@@ -155,6 +155,14 @@ class PencilDurabilityAppTest {
 		pencil.setPointDurability(1000);
 		String expected = "An onion a day keeps the doctor away";
 		String actual = pencil.edit(pencil, "onion", "An       a day keeps the doctor away");
+		assertEquals(expected, actual);
+	}
+	@Test
+	void editOverWords() {
+		Pencil pencil = new Pencil();
+		pencil.setPointDurability(1000);
+		String expected = "An artich@k@ay keeps the doctor away";
+		String actual = pencil.edit(pencil, "artichoke", "An       a day keeps the doctor away");
 		System.out.println("E: " + expected + "\nA: " + actual);
 		assertEquals(expected, actual);
 	}

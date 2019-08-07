@@ -120,12 +120,17 @@ public class Pencil {
 			for(int i = 0; i < chars.length; i++) {
 				if(written.charAt(index) == ' ') {
 					written = written.substring(0, index) + chars[i] + written.substring(index + 1);
-					index++;
+					if(chars[i] != ' ' || chars[i] != '\n') {
+						pencil.setEraserDurability(getEraserDurability()-1);
+					}
+				}else {
+					written = written.substring(0, index) + '@' + written.substring(index + 1);
+					pencil.setEraserDurability(getEraserDurability()-1);
 				}
+				index++;
 			}
 			
 		}
-		
 		return written;
 	}
 }
