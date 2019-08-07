@@ -17,7 +17,6 @@ class PencilDurabilityAppTest {
 		pencil.sharpen(pencil);
         int actual = pencil.getPointDurability();
         int expected = 5000;
-        System.out.println("E: " + expected + " A: " + actual);
         assertEquals(expected, actual);
 	}
 	@Test
@@ -102,7 +101,7 @@ class PencilDurabilityAppTest {
 		assertEquals(expected, actual);
 	}
 	@Test
-	void canEraseWithZeroEraser() {
+	void cantEraseWithZeroEraser() {
 		Pencil pencil = new Pencil();
 		pencil.setEraserDurability(0);
 		boolean expected = false;
@@ -121,8 +120,17 @@ class PencilDurabilityAppTest {
 	void erase() {
 		Pencil pencil = new Pencil();
 		pencil.setEraserDurability(3);
-		String expected = "buffalo ";
+		String expected = "buffalo b   ";
 		String actual = pencil.erase(pencil, "bill", "buffalo bill");
+		assertEquals(expected, actual);
 	}
+	@Test
+	void eraseWithSpace() {
+		Pencil pencil = new Pencil();
+		pencil.setEraserDurability(5);
+		String expected = "buffal      ";
+		String actual = pencil.erase(pencil, "o bill", "buffalo bill");
+		assertEquals(expected, actual);
+  	}
 	
 }

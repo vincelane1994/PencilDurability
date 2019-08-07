@@ -100,8 +100,15 @@ public class Pencil {
 		for(int i = string.length(); i > 0; i--)
 			if(pencil.canErase(pencil)) {
 				int index = written.lastIndexOf(string) + (i-1);
-		        written = written.substring(0, index) + ' ' + written.substring(index + 1);
-		        string = string.substring(0, string.length()-1);
+		        if(written.charAt(index) == ' ' || written.charAt(index) == '\n') {
+			        written = written.substring(0, index) + ' ' + written.substring(index + 1);
+			        string = string.substring(0, string.length()-1);
+		        } else {
+			        written = written.substring(0, index) + ' ' + written.substring(index + 1);
+			        string = string.substring(0, string.length()-1);
+		        	pencil.setEraserDurability(pencil.getEraserDurability()-1);
+		        	
+		        }
 			}
 		return written;
 	}
