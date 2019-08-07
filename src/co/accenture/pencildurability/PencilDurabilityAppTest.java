@@ -132,5 +132,14 @@ class PencilDurabilityAppTest {
 		String actual = pencil.erase(pencil, "o bill", "buffalo bill");
 		assertEquals(expected, actual);
   	}
+	@Test
+	void eraserDuraDoesntChangeWithWhiteSpace() {
+		Pencil pencil = new Pencil();
+		pencil.setEraserDurability(10);
+		pencil.erase(pencil, "o bill", "buffalo bill");
+		int expected = 5;
+		int actual = pencil.getEraserDurability();
+		assertEquals(expected, actual);
+	}
 	
 }
