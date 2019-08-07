@@ -163,8 +163,11 @@ class PencilDurabilityAppTest {
 		pencil.setPointDurability(1000);
 		String expected = "An artich@k@ay keeps the doctor away";
 		String actual = pencil.edit(pencil, "artichoke", "An       a day keeps the doctor away");
-		System.out.println("E: " + expected + "\nA: " + actual);
+		int expectedDura = 1000 - 9;
+		int acutalDura = pencil.getPointDurability();
+		System.out.println("E: " + expectedDura + "A: " + acutalDura);
 		assertEquals(expected, actual);
+		assertEquals(expectedDura, acutalDura);
 	}
 	
 }
