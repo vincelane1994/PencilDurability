@@ -117,5 +117,12 @@ class PencilDurabilityAppTest {
 		boolean actual = pencil.canErase(pencil);
 		assertEquals(expected, actual);
 	}
+	@Test
+	void erase() {
+		Pencil pencil = new Pencil();
+		pencil.setEraserDurability(3);
+		String expected = "buffalo ";
+		String actual = pencil.erase(pencil, "bill", "buffalo bill");
+	}
 	
 }

@@ -96,4 +96,13 @@ public class Pencil {
 			return false;
 		}
 	}
+	public String erase(Pencil pencil, String string, String written) {
+		for(int i = string.length(); i > 0; i--)
+			if(pencil.canErase(pencil)) {
+				int index = written.lastIndexOf(string) + (i-1);
+		        written = written.substring(0, index) + ' ' + written.substring(index + 1);
+		        string = string.substring(0, string.length()-1);
+			}
+		return written;
+	}
 }
