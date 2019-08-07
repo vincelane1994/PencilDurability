@@ -55,7 +55,7 @@ public class Pencil {
 
 
 
-	public static void sharpen(Pencil pencil) {
+	public void sharpen(Pencil pencil) {
 		if(pencil.getPencilLength() > 0) {
 			pencil.setPointDurability(pencil.getMaxPointDurability());
 			pencil.setPencilLength(pencil.getPencilLength()-1);
@@ -64,7 +64,7 @@ public class Pencil {
 		}
 	}
 	
-	public static String write(Pencil pencil, String string, String written) {
+	public String write(Pencil pencil, String string, String written) {
 		char[] chars = string.toCharArray();
 		for(char character: chars) {
 			if(character == ' ') {
@@ -110,6 +110,22 @@ public class Pencil {
 		        	
 		        }
 			}
+		return written;
+	}
+	public String edit(Pencil pencil, String add, String written) {
+		int index= 0;
+		char[] chars = add.toCharArray();
+		if(written.contains("  ")) {
+			index = written.indexOf("  ")+1;
+			for(int i = 0; i < chars.length; i++) {
+				if(written.charAt(index) == ' ') {
+					written = written.substring(0, index) + chars[i] + written.substring(index + 1);
+					index++;
+				}
+			}
+			
+		}
+		
 		return written;
 	}
 }
