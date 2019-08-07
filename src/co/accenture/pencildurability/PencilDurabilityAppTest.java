@@ -141,5 +141,13 @@ class PencilDurabilityAppTest {
 		int actual = pencil.getEraserDurability();
 		assertEquals(expected, actual);
 	}
+	@Test
+	void eraserDoesntHaveEnoughDurability() {
+		Pencil pencil = new Pencil();
+		pencil.setEraserDurability(4);
+		String expected = "buffalo     ";
+		String actual = pencil.erase(pencil, "o bill", "buffalo bill");
+		assertEquals(expected, actual);
+  	}
 	
 }
